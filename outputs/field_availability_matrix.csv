@@ -1,0 +1,23 @@
+field_name,data_area,required_for_question_families,the_odds_api_available,api_football_available,open_meteo_available,sportmonks_available_if_configured,free_source_available,notes
+defensive_strength,team_stats,"goals_totals, halftime, shots",derived,derived,none,derived,yes,Derived from historical goals conceded per match (API-Football or FBref)
+form,team_stats,"goals_totals, halftime, match_result",none,derived,none,derived,yes,Last 5-10 results from /fixtures history
+h2h,team_stats,"goals_totals, halftime, match_result",none,direct,none,direct,yes,GET /fixtures/headtohead?h2h={team1}-{team2}
+half_goal_rates,team_stats,"goals_totals, halftime",none,derived,none,derived,yes,Derived from halftime score in historical fixtures; need HT score present
+key_passes,player_stats,player_markets,none,direct,none,direct,yes,In /fixtures/players response under passes.key
+lineup,lineups,player_markets,none,direct,none,direct,yes,GET /fixtures/lineups; published ~1h before kickoff; no explicit confirmed flag
+match_importance,team_stats,discipline,none,derived,none,derived,yes,"Inferred from competition stage (group stage, knockout) in fixture metadata"
+match_style,team_stats,"corners, halftime, shots",none,derived,none,derived,yes,"Derived from historical possession, shots, pace of play; not a direct field"
+odds,odds,match_result,direct,none,none,none,yes,The Odds API primary source; implied prob = 1/decimal_odds
+opponent_defensive_line,team_stats,offsides,none,derived,none,derived,yes,"Proxy: opponent offsides conceded, high defensive line inferred from historical offside counts"
+player_form,player_stats,player_markets,none,derived,none,derived,yes,Last 3-5 matches player stats from /fixtures/players; needs multiple calls
+referee_stats,referee,"discipline, fouls",none,derived,none,derived,conditional,Referee name from fixture; historical stats derived from fixture statistics — quota-intensive on free tier
+team_aggression,team_stats,discipline,none,derived,none,derived,yes,Proxy: fouls + yellow cards per match from historical statistics
+team_attacking_depth,team_stats,offsides,none,derived,none,derived,yes,Proxy: corners won + shots per match from historical statistics
+team_corner_rates,team_stats,"corners, halftime",none,derived,none,derived,yes,Derived from historical Corner Kicks stat in /fixtures/statistics
+team_discipline,team_stats,discipline,none,derived,none,derived,yes,Derived from Yellow Cards + Red Cards in /fixtures/statistics history
+team_foul_rates,team_stats,fouls,none,derived,none,derived,yes,Derived from historical Fouls stat in /fixtures/statistics
+team_scoring_rate,team_stats,goals_totals,none,derived,none,derived,yes,Goals scored per match from fixture history
+team_shot_rates,team_stats,"halftime, shots",none,derived,none,derived,yes,Derived from Shots on Goal / Total Shots per match history
+team_strength,team_stats,"halftime, match_result",derived,derived,none,derived,yes,"Elo ratings (eloratings.net), FIFA rankings, or implied from odds"
+xg,team_stats,player_markets,none,direct,none,direct,yes,Expected goals in /fixtures/statistics as 'expected_goals' (not all fixtures)
+xg_per_shot,player_stats,player_markets,none,derived,none,derived,conditional,Derived if xG + shots available per player; may need Understat or StatsBomb for quality data

@@ -1,0 +1,30 @@
+question_family,normalized_question_template,reusable_model_group,required_data_fields,odds_support,football_data_support,lineup_support,weather_support,referee_support,can_resolve_label,can_create_features,best_provider,support_status,notes
+player_markets,{PLAYER} have at least 1 shot on target,player_shots_model,"lineup,player_form,xg_per_shot",weak,direct,direct,none,none,yes,yes,api_football,direct,Needs lineup data
+shots,{HOME} more shots on target than {AWAY},shots_model,"team_shot_rates,defensive_strength,match_style",weak,direct,weak,none,none,yes,yes,api_football,direct,
+fouls,{HOME} commit more fouls than {AWAY},discipline_model,"team_foul_rates,referee_stats",none,direct,none,none,direct,yes,yes,api_football,direct,
+offsides,{TEAM} caught offside {N}+ times,set_pieces_model,"team_attacking_depth,opponent_defensive_line",none,direct,none,none,none,yes,yes,api_football,direct,
+match_result,{TEAM} win the match,match_result_model,"team_strength,h2h,form,odds",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+shots,{TEAM} have {N}+ shots on target,shots_model,"team_shot_rates,defensive_strength",weak,direct,weak,none,none,yes,yes,api_football,direct,
+discipline,penalty kick awarded OR red card shown,discipline_model,"referee_stats,team_aggression,match_importance",weak,direct,none,none,direct,yes,yes,api_football,direct,
+corners,total corner kicks {N}+,set_pieces_model,"team_corner_rates,match_style",weak,direct,none,none,none,yes,yes,api_football,direct,
+goals_totals,both teams score AND {N}+ total goals,scoreline_model,"team_scoring_rate,defensive_strength,h2h,form",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+goals_totals,{TEAM} score in second half,scoreline_model,"team_scoring_rate,half_goal_rates,defensive_strength",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+discipline,total cards {N}+,discipline_model,"referee_stats,team_discipline,match_importance",weak,direct,none,none,direct,yes,yes,api_football,direct,
+player_markets,{PLAYER} score or assist a goal,player_goals_model,"lineup,player_form,xg,key_passes",weak,direct,direct,none,none,yes,yes,api_football,direct,Needs lineup data
+goals_totals,match total goals over {N},scoreline_model,"team_scoring_rate,defensive_strength,h2h,form",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+goals_totals,{TEAM} score at least 1 goal,scoreline_model,"team_scoring_rate,defensive_strength,h2h",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+goals_totals,match total goals under {N},scoreline_model,"team_scoring_rate,defensive_strength,h2h,form",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+shots,total shots on target {N}+,shots_model,"team_shot_rates,defensive_strength",weak,direct,weak,none,none,yes,yes,api_football,direct,
+discipline,{HOME} receive more cards than {AWAY},discipline_model,"referee_stats,team_discipline,match_importance",weak,direct,none,none,direct,yes,yes,api_football,direct,
+corners,{HOME} more corner kicks than {AWAY},set_pieces_model,"team_corner_rates,match_style",weak,direct,none,none,none,yes,yes,api_football,direct,
+player_markets,{PLAYER} score a goal,player_goals_model,"lineup,player_form,xg",weak,direct,direct,none,none,yes,yes,api_football,direct,Needs lineup data
+goals_totals,{HOME} score more goals than {AWAY} in second half,scoreline_model,"team_scoring_rate,half_goal_rates,defensive_strength",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+halftime,at halftime match tied,match_result_model,"team_strength,h2h,form,half_goal_rates",weak,direct,none,none,none,yes,yes,api_football,direct,
+goals_totals,{HOME} score first goal AND {AWAY} score in 2H,scoreline_model,"team_scoring_rate,h2h,form",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,Combined market — requires scoreline simulation
+goals_totals,{TEAM} score in first half,scoreline_model,"team_scoring_rate,half_goal_rates,defensive_strength",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+goals_totals,second half more goals than first half,scoreline_model,"team_scoring_rate,half_goal_rates,h2h",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+discipline,penalty kick awarded,discipline_model,"referee_stats,team_aggression",weak,direct,none,none,direct,yes,yes,api_football,direct,
+halftime,at halftime {TEAM} winning,match_result_model,"team_strength,h2h,form,half_goal_rates",weak,direct,none,none,none,yes,yes,api_football,direct,
+goals_totals,{TEAM} score first goal of second half,scoreline_model,"team_scoring_rate,half_goal_rates",direct,direct,none,weak,none,yes,yes,"api_football, the_odds_api",direct,
+halftime,at halftime {HOME} more corner kicks than {AWAY},set_pieces_model,"team_corner_rates,match_style",weak,direct,none,none,none,yes,yes,api_football,direct,
+halftime,at halftime both teams have 1+ shot on target,shots_model,"team_shot_rates,defensive_strength",weak,direct,none,none,none,yes,yes,api_football,direct,
