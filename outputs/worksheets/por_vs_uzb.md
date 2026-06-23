@@ -201,15 +201,22 @@ No offside market found for either team.
 - Base rate (underdog): 0.40 → Q1 = **40%**
 - Base rate (favorite): 0.40 → Q3 = **40%**
 
-### Q10: Gonçalo Ramos — FD Anytime Goalscorer
+### Q10: Gonçalo Ramos — benched, base-rate sub estimate
 
-Market: FD Anytime Goalscorer −125 (one-sided)
-- Raw implied: 100/(125+100) × 100 = **55.6%**
-- Estimated hold on one-sided prop: ~5%
-- Fair P(scores) = 55.6% / 1.05 = **53%**
+**Timeline:**
+1. Initial scan: not visible in FD → flagged "lineup unconfirmed" (12% bench estimate, Low conf)
+2. User found DK Anytime Goalscorer −125 → updated to 53% (starting, Medium conf)
+3. Pre-game lineup: Ramos confirmed NOT starting. DK pulled the market. **Final: 22%, Low conf.**
 
-Note: initial session estimate was 12% (assumed benched — not in first scan of FD player markets).
-User located the −125 line mid-session. Updated per market-first rule: market trumps base rate.
+**Final derivation:**
+- DK Anytime Goalscorer pulled (lineup confirmed benched).
+- Polymarket O/U 0.5: YES 24¢ / NO 98¢ — incoherent binary (sums to 122¢); YES is stale
+  pre-lineup last-trade. NO at 98¢ implies 2% and is directionally consistent but from a
+  thin single-side trade, not a settled market. Not used as primary.
+- Expected minutes: 20 min (actual history: 8 min in WC G1 vs Morocco; 25 min in pre-tournament friendly)
+- Formula: P(scores) = P(starting, 90 min) × (minutes / 90)
+  = 53% × (20/90) = **11.8% ≈ 12%**
+- Confidence: **Low** (no clean sub market; linear time scaling from starting market is an approximation)
 
 ---
 
@@ -226,4 +233,4 @@ User located the −125 line mid-session. Updated per market-first rule: market 
 | 7 | Portugal win | 88% | 88% | **YES** | direct 3-way OR from 6-way WDW combos | High |
 | 8 | 2H 2+ total goals | 55% | — | **YES** | Poisson split (λ_2H=1.85) | Medium |
 | 9 | UZB 4+ SoT | 18% | 18% | **NO** | Poisson fit from one-sided ladder (λ=2.2) | Medium |
-| 10 | Gonçalo Ramos scores | 53% | — | **YES** | direct one-sided FD −125; est 5% hold | Medium |
+| 10 | Gonçalo Ramos scores | 12% | — | **NO** | derived: 53% starting market × (20/90 min actual history) | Low |

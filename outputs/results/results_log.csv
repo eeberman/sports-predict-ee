@@ -69,4 +69,4 @@ match_date,match,question,our_prob,crowd_prob,outcome,rbp,status,note
 2026-06-23,POR vs UZB,Portugal win,88,88,,,open,3-way OR from WDW+O/U 1.5 6-way (hold 11.3%); proportional=82.5% OR=87.5%
 2026-06-23,POR vs UZB,2H 2+ total goals,55,,,,open,Poisson split: lam_tot=3.35 (O/U3.5 OR) lam_1H=1.5 (1H-O/U1.5 OR) lam_2H=1.85; P(>=2)=55%
 2026-06-23,POR vs UZB,UZB 4+ SoT,18,18,,,open,Poisson fit lam=2.2 from FD one-sided ladder [3+ 4+ 5+ 6+]; P(>=4)=18.1%
-2026-06-23,POR vs UZB,Goncalo Ramos scores,53,,,,open,user found -125 anytime goalscorer; fair ~53% (est 5% hold); 55.6% raw; starting striker in POR attack
+2026-06-23,POR vs UZB,Goncalo Ramos scores,12,,,,open,BENCHED (DK pulled; lineup confirmed). 53% starting market x (20/90 min) = 11.8%. 20 min from actual history: 8 min WC G1 + 25 min friendly. Polymarket NO 98c directionally consistent. Low conf.

@@ -80,6 +80,18 @@ playing a different role. Only apply bench base rate after explicit lineup
 confirmation (e.g. official team sheet or user confirms no market exists
 anywhere).
 
+**Confirmed benched but expected to sub on — time-scale from the starting market.**
+If a player is confirmed not starting but likely to come on as a sub:
+1. Find their expected minutes from actual recent history (last 2–3 games: WC group
+   stage minutes, tournament friendlies). Do NOT assume a generic "sub gets 45 min."
+2. Formula: `P(sub scores) = P(starting market) × (expected_minutes / 90)`
+3. If no starting market was found, fall back to base rate × time fraction.
+4. Confidence: Low. Flag that linear time-scaling is an approximation.
+5. For incoherent prediction-market prices (e.g. Polymarket YES + NO ≠ 100¢):
+   the side that moved post-lineup-news is directional signal, but if the binary
+   is broken, do not read either side as a precise probability — use the
+   time-scaled starting market instead.
+
 Then stop. Ask the user to paste whatever markets they can find.
 
 ---
