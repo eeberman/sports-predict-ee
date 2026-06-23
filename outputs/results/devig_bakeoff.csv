@@ -6,5 +6,8 @@ match_date,match,question,market,margin_pct,yes_proportional,yes_odds_ratio,yes_
 2026-06-23,NOR vs SEN,Norway win the match,FanDuel 1X2,6.19,40.07,40.31,40.38,40.49,odds_ratio,YES,settled,FD +135/+230/+200
 2026-06-23,NOR vs SEN,HT match tied,FanDuel HT 1X2,11.01,41.9,42.45,42.59,42.84,odds_ratio,NO,settled,FD +185/+115/+240; YES=draw leg
 2026-06-23,NOR vs SEN,9+ total corner kicks,FanDuel O8.5,6.85,55.85,56.28,56.25,56.25,odds_ratio,YES,settled,FD -148/+112
-2026-06-23,POR vs UZB,Portugal win,WDW 3-way (derived from WDW+O/U 1.5 6-way),11.3,82.5,87.5,85.0,88.0,odds_ratio,,open,POR raw 91.8% in 6-way sum 111.3%; all non-proportional methods ~87-88%
-2026-06-23,POR vs UZB,BTTS AND 3+ total goals,BTTS+O/U 2.5 4-way (FanDuel),12.3,32.4,32.5,32.3,33.3,odds_ratio,,open,YES leg = BTTS-yes & Over-2.5; methods very close (balanced 4-way)
+2026-06-23,POR vs UZB,Portugal win,WDW 3-way (derived from WDW+O/U 1.5 6-way),11.3,82.5,87.5,85.0,88.0,odds_ratio,YES,settled,POR raw 91.8% in 6-way sum 111.3%; all non-proportional methods ~87-88%
+2026-06-23,POR vs UZB,BTTS AND 3+ total goals,BTTS+O/U 2.5 4-way (FanDuel),12.3,32.4,32.5,32.3,33.3,odds_ratio,NO,settled,YES leg = BTTS-yes & Over-2.5; methods very close (balanced 4-way)
+2026-06-23,ENG vs GHA,England win,Kalshi 3-way ENG/Tie/GHA,2.0,83.33,84.06,84.08,84.33,odds_ratio,,open,near-vig-free; methods agree
+2026-06-23,ENG vs GHA,BTTS AND 3+ total goals,FD 4-way Yes&Over/Yes&Under/No&Over/No&Under 2.5,13.88,32.52,32.71,33.14,33.57,odds_ratio,,open,YES=Yes&Over leg; 13.9% hold; highest divergence this slate
+2026-06-23,ENG vs GHA,Ghana 5+ corner kicks,Kalshi Ghana 5+ corners YES/NO,4.0,15.38,13.88,14.0,14.0,odds_ratio,,open,

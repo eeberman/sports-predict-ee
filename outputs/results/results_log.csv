@@ -60,13 +60,23 @@ match_date,match,question,our_prob,crowd_prob,outcome,rbp,status,note
 2026-06-23,NOR vs SEN,Norway 6+ shots on target,38,42,YES,-1.6,settled,FanDuel one-sided +165 raw implied; no NO price
 2026-06-23,NOR vs SEN,Sadio Mane scores a goal,28,30,NO,3.4,settled,FanDuel anytime goalscorer +260 raw implied; one-sided
 2026-06-23,NOR vs SEN,Senegal caught offside 2+ times,40,50,YES,,settled,base-rate: underdog offside_2plus 40% (SB WC n50)
-2026-06-23,POR vs UZB,UZB caught offside 2+ times,40,,,,open,base-rate underdog 0.40; no offside market found
-2026-06-23,POR vs UZB,Portugal more 2H SoT than UZB,85,,,,open,Poisson lam_POR/2=3.8 vs lam_UZB/2=1.1; raw P(POR>UZB in 2H)=84.7%; tempering removed (single-point calibration not robust)
-2026-06-23,POR vs UZB,Portugal caught offside 2+ times,40,,,,open,base-rate favorite 0.40; no offside market found
-2026-06-23,POR vs UZB,Penalty OR red card,58,,,,open,Kalshi red 27.5% + base penalty 42%; 1-(0.725)(0.58)=58%; independence assumed
-2026-06-23,POR vs UZB,Shomurodov 1+ SoT in 2H,30,,,,open,FT-1H+each-half = 50.5-27.8+6.9=29.6%; one-sided FD props 10% hold assumed
-2026-06-23,POR vs UZB,BTTS AND 3+ total goals,33,33,,,open,direct 4-way OR (hold 12.3%): BTTS+O2.5 leg = 32.5%
-2026-06-23,POR vs UZB,Portugal win,88,88,,,open,3-way OR from WDW+O/U 1.5 6-way (hold 11.3%); proportional=82.5% OR=87.5%
-2026-06-23,POR vs UZB,2H 2+ total goals,55,,,,open,Poisson split: lam_tot=3.35 (O/U3.5 OR) lam_1H=1.5 (1H-O/U1.5 OR) lam_2H=1.85; P(>=2)=55%
-2026-06-23,POR vs UZB,UZB 4+ SoT,18,18,,,open,Poisson fit lam=2.2 from FD one-sided ladder [3+ 4+ 5+ 6+]; P(>=4)=18.1%
-2026-06-23,POR vs UZB,Goncalo Ramos scores,12,,,,open,BENCHED (DK pulled; lineup confirmed). 53% starting market x (20/90 min) = 11.8%. 20 min from actual history: 8 min WC G1 + 25 min friendly. Polymarket NO 98c directionally consistent. Low conf.
+2026-06-23,POR vs UZB,UZB caught offside 2+ times,40,41,YES,,skipped,SKIPPED. Base-rate 40% vs SP crowd 41%; both would've called NO. YES outcome — missed points both sides.
+2026-06-23,POR vs UZB,Portugal more 2H SoT than UZB,85,74,YES,6.43,settled,beat crowd; raw Poisson no tempering; SP crowd 74%
+2026-06-23,POR vs UZB,Portugal caught offside 2+ times,40,56,YES,,skipped,SKIPPED. Our 40% base-rate would've been wrong (NO). SP crowd 56% was right. Blowout = more offensive pressure = more offside traps.
+2026-06-23,POR vs UZB,Penalty OR red card,58,39,NO,,skipped,SKIPPED. Our 58% badly overestimated; SP crowd 39% much closer to NO. Independence assumption on red+penalty runs hot in low-card games.
+2026-06-23,POR vs UZB,Shomurodov 1+ SoT in 2H,30,35,NO,6.03,settled,beat crowd; derived from 3 one-sided FD props; SP crowd 35%
+2026-06-23,POR vs UZB,BTTS AND 3+ total goals,33,33,NO,3.83,settled,beat crowd (tied our de-vig); direct 4-way OR; SP crowd 35%
+2026-06-23,POR vs UZB,Portugal win,88,88,YES,4.05,settled,beat crowd; 3-way OR from 6-way WDW; SP crowd 81%
+2026-06-23,POR vs UZB,2H 2+ total goals,55,52,YES,5.01,settled,beat crowd; Poisson split lam_2H=1.85; SP crowd 52%
+2026-06-23,POR vs UZB,UZB 4+ SoT,18,18,NO,8.81,settled,beat crowd by 12pts; Poisson ladder fit lam=2.2; SP crowd 30%
+2026-06-23,POR vs UZB,Goncalo Ramos scores,12,29,NO,10.57,settled,beat crowd massively; benched + time-scaled (53%*20/90); SP crowd 29%
+2026-06-23,ENG vs GHA,HT both teams 1+ SoT,66,66,,,open,"Derived: Poisson each-half ladders; ENG lam=3.5, GHA lam=1.15; P(ENG>=1)=97%*P(GHA>=1)=68%=66%"
+2026-06-23,ENG vs GHA,Ghana more fouls than England,,,,,skipped,Base-rate (no market): underdog_more_fouls prior=0.56
+2026-06-23,ENG vs GHA,Both teams 1+ SoT in 2H,66,66,,,open,Derived: same Poisson model as Q1; symmetric-halves assumption
+2026-06-23,ENG vs GHA,BTTS AND 3+ total goals,33,33,,,open,Direct 4-way FD BTTS*O/U 2.5 (+170 leg); odds-ratio de-vig; 13.9% hold
+2026-06-23,ENG vs GHA,Penalty kick OR red card,,,,,skipped,Base-rate (no market): penalty_or_red prior=0.56 (composed 0.40 pen + 0.30 red)
+2026-06-23,ENG vs GHA,Ghana more SoT than England in 2H,8,8,,,open,Derived: Poisson P(GHA>ENG) w/ GHA lam=1.15 vs ENG lam=3.5 per half; Low confidence (independence assumed)
+2026-06-23,ENG vs GHA,England win,84,84,,,open,Direct 3-way Kalshi (2% hold); odds-ratio ENG=84.06%
+2026-06-23,ENG vs GHA,Harry Kane score or assist,67,67,,,open,Direct 1-sided FD prop (-250 YES); 8% hold assumed; shave 4% off raw 71.4%
+2026-06-23,ENG vs GHA,Semenyo 1+ SoT,39,39,,,open,Direct 1-sided FD prop (+130 YES); 8% hold assumed; shave 4% off raw 43.5%
+2026-06-23,ENG vs GHA,Ghana 5+ corner kicks,14,14,,,open,Direct 2-way Kalshi (4% hold); odds-ratio YES=13.88%
