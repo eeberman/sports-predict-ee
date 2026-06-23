@@ -1,0 +1,2 @@
+mismatch_type,r2_key,bucket_size,manifest_status,details
+noncanonical_bucket_prefixed_key,sports-predict/raw/_system/r2_test/ingested_date=2026-06-21/run_id=1f7b41d0/test.json,56,,Object key repeats the bucket name before raw/.

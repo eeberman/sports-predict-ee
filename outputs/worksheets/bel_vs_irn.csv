@@ -1,0 +1,11 @@
+market_id,question,family,prob,low,high,evidence,main_risk,grounding
+78cd1057-de3a-4456-99f2-f7f7b128853e,Will there be 2 or more total cards shown in the second half?,discipline,73.0,67.0,79.0,Poisson(mean=2.6) P(>= 2 cards) 2026 surge,calm game / lenient ref,base_rate
+3252c61c-0764-476b-87dd-21d19991cb8f,Will Mehdi Taremi score or assist a goal (excluding own goals)?,player_markets,27.0,21.0,33.0,placeholder key-forward G+A (DEFER / paste prop),lineup/role unknown,base_rate
+ddbdc801-59d8-45b6-a43f-62668cf25688,Will Belgium have more shots on target than Iran in the second half?,shots,68.0,62.0,74.0,"SB 2H-SoT dominance 0.64, fav-scaled (fav 0.68)",game-state easing / 2H tie,base_rate
+48f23fba-8390-47f6-ab76-1f8e6b64d19c,Will Belgium win the match?,match_result,68.0,62.0,74.0,3-way de-vig of h2h (home),market move/late news,market
+476c7adb-322e-4c71-8a88-c4e007875d6a,Will there be 4 or more total shots on target in the second half?,shots,64.0,58.0,70.0,Poisson(mean=4.4) P(>= 4),compact match / few shots,base_rate
+ca95ec67-d6ec-4f79-9f5e-c992bf490413,Will there be 9 or more total corner kicks?,corners,64.0,58.0,70.0,Poisson(mean=9.8) P(>= 9 corners) [PASTE corner mkt to sharpen],low-tempo match,base_rate
+0834c43f-e082-4aef-a90b-7248ce4822d6,Will both teams score AND the match have 3 or more total goals?,goals_totals,37.0,31.0,43.0,BTTS modeled from over 2.5 (no BTTS market — PASTE),favorite clean sheet,base_rate
+c42921f3-237e-4641-a49e-4dde222a215e,Will Youri Tielemans have at least 1 shot on target?,player_markets,42.0,36.0,48.0,placeholder midfielder 1+ SoT (DEFER / paste prop),lineup/role unknown,base_rate
+378d7ae1-121e-48ff-8640-4ece6e7587e6,Will Iran commit more fouls than Belgium?,fouls,56.0,50.0,62.0,underdog-fouls-more prior 0.56 (subj dog),referee/style variance,base_rate
+9910e386-d59f-46bb-b711-f3c2477918d0,"At halftime, will Belgium be winning?",halftime,44.0,38.0,50.0,P(lead@HT) = 0.65 x P(win) 0.68,1H cagey / early goal swing,base_rate

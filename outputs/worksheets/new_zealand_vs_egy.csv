@@ -1,0 +1,11 @@
+market_id,question,family,prob,low,high,evidence,main_risk,grounding
+b36c6e3f-5e3e-4b8c-9bf9-9fe31f0b21f6,Will Egypt be caught offside 2 or more times?,offsides,40.0,34.0,46.0,SB offside>=2 favorite 0.40,deep block / vertical attack,base_rate
+4c9ed88b-3e35-4284-a58e-ccf1abcf645e,Will New Zealand commit more fouls than Egypt?,fouls,56.0,50.0,62.0,underdog-fouls-more prior 0.56 (subj dog),referee/style variance,base_rate
+9b381f99-9aa4-46e1-a628-9f4ea3e37301,"In the second half, will New Zealand have more shots on target than Egypt?",shots,66.0,60.0,72.0,"SB 2H-SoT dominance 0.64, fav-scaled (fav 0.59)",game-state easing / 2H tie,base_rate
+cc1b5f03-3564-4f03-bf08-44a6d43302e1,Will the second half have more goals than the first half?,goals_totals,50.0,44.0,56.0,UNHANDLED goals_totals/half_goals_comparison,needs manual classification,base_rate
+06d00fad-53a1-4c69-be4c-dd0934ace203,Will Egypt finish with more corner kicks than New Zealand?,corners,55.0,49.0,61.0,"2H corner dominance, tempered",game-state easing,base_rate
+fa64cacb-6459-4ab3-8196-d22fe617e5f6,Will New Zealand win the match?,match_result,17.0,11.0,23.0,3-way de-vig of h2h (home),market move/late news,market
+ff42a0c1-0d22-49d4-bad0-239f210bbc5b,Will the match have 2 or fewer total goals?,goals_totals,55.0,49.0,61.0,Market under 2.5 = 0.55,margin swing,market
+f7fb9de8-463b-40dc-ae85-fd2b4104fc3c,Will there be 4 or more total cards shown?,discipline,53.0,47.0,59.0,Poisson(mean=3.8) P(>= 4 cards) 2026 surge,calm game / lenient ref,base_rate
+2f921e6f-141c-4a96-9cb5-f124ba7621e6,Will Ben Waine have at least 1 shot on target?,player_markets,42.0,36.0,48.0,placeholder midfielder 1+ SoT (DEFER / paste prop),lineup/role unknown,base_rate
+6ea0b900-26ef-47a9-845c-1b5077fb9681,Will Mahmoud Trezeguet score or assist a goal (excluding own goals)?,player_markets,27.0,21.0,33.0,placeholder key-forward G+A (DEFER / paste prop),lineup/role unknown,base_rate

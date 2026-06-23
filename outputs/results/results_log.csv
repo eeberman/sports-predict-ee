@@ -1,0 +1,72 @@
+match_date,match,question,our_prob,crowd_prob,outcome,rbp,status,note
+2026-06-21,ESP vs KSA,Spain more 2H corners than Saudi,77,75,,,in_play,"provisional YES, +3"
+2026-06-21,ESP vs KSA,Spain more SoT than Saudi 2H,72,77,,,in_play,below crowd; if NO +10
+2026-06-21,ESP vs KSA,Spain caught offside 2+ times,36,54,YES,-16.47,settled,CONTRARIAN MISS: base-rate said favorite low-offside; vs ultra-deep block Spain played more through-balls and got caught MORE
+2026-06-21,ESP vs KSA,BTTS AND 3+ goals,25,33,,,in_play,"Spain 4-0 -> BTTS NO provisional, +7"
+2026-06-21,ESP vs KSA,Spain win,88,85,YES,2.54,settled,beat crowd; market-anchored
+2026-06-21,ESP vs KSA,Saudi score in 2H,21,28,NO,5.4,settled,beat crowd
+2026-06-21,ESP vs KSA,8+ total shots on target,62,65,YES,1.02,settled,beat crowd
+2026-06-21,ESP vs KSA,Al-Dawsari score,9,18,NO,5.15,settled,beat crowd; market-anchored
+2026-06-21,ESP vs KSA,Saudi caught offside 2+ times,,42,YES,,settled,WE SKIPPED — left points; both teams hit 2+ offsides in a 4-0
+2026-06-21,ESP vs KSA,Penalty OR red card,,38,,,pending,WE SKIPPED
+2026-06-21,BEL vs IRN,Iran more fouls than Belgium,66,58,YES,8.18,settled,API-Football: Iran 12.7 vs Belgium 8.8 fouls/g; HOLD LOOSELY (thin)
+2026-06-21,BEL vs IRN,2+ total cards in 2nd half,82,56,NO,-33.44,settled,referee Herrera 5.6-5.85 cards/g (verified)
+2026-06-21,BEL vs IRN,BTTS AND 3+ goals,39,38,NO,1.38,settled,Kalshi BTTS 47.5% - P(1-1)
+2026-06-21,BEL vs IRN,Belgium more SoT than Iran 2H,72,66,YES,5.6,settled,FanDuel SoT ladders + each-half validation
+2026-06-21,BEL vs IRN,4+ total SoT in 2H,68,63,YES,5.62,settled,FanDuel total-SoT mean 9.3 halved (symmetric; 2H-skew=upside)
+2026-06-21,BEL vs IRN,Belgium win,68,69,NO,2.51,settled,Odds API h2h 9 books + Kalshi cross-check
+2026-06-21,BEL vs IRN,Belgium winning at halftime,51,50,NO,1.35,settled,Kalshi 1H result de-vig
+2026-06-21,BEL vs IRN,Tielemans 1+ SoT,48,43,YES,8.07,settled,FanDuel prop -105 de-vigged
+2026-06-21,BEL vs IRN,Taremi score or assist,25,31,NO,5.18,settled,FanDuel Score-or-Assist +280 de-vigged
+2026-06-21,BEL vs IRN,9+ total corners,56,52,NO,-2.04,settled,FanDuel corners ladder de-vig (was base-rate 64)
+2026-06-21,URU vs CPV,Uruguay caught offside 2+ times,60,,,,pending,"TRIANGULATED: league blowout 41% + Uruguay own record (Copa24 mean 2.3, P>=2 67%; +6 vs Saudi)"
+2026-06-21,URU vs CPV,Both teams 1+ SoT in 2H,67,,,,pending,FanDuel SoT each-half (URU 0.95 x CPV 0.75)
+2026-06-21,URU vs CPV,Cape Verde more cards than Uruguay,,,,,skipped,thin CPV data; user skipped
+2026-06-21,URU vs CPV,Penalty awarded in match,43,,,,pending,SB WC base 0.42; lenient ref Eskas
+2026-06-21,URU vs CPV,Uruguay more fouls than Cape Verde,,,,,skipped,thin CPV data; user skipped
+2026-06-21,URU vs CPV,Cape Verde 2+ SoT in 2H,41,,,,pending,FanDuel CPV per-half SoT mean 1.40
+2026-06-21,URU vs CPV,Uruguay win,68,,,,pending,FanDuel h2h de-vig
+2026-06-21,URU vs CPV,Cape Verde score in 2H,25,,,,pending,FanDuel team total x 2H share
+2026-06-21,URU vs CPV,Darwin Nunez score or assist,52,,,,pending,FanDuel scorer+assist
+2026-06-21,URU vs CPV,Uruguay 6+ SoT,56,,,,pending,"FanDuel Uruguay SoT ladder, mean 6.1"
+2026-06-22,NZ vs EGY,Will New Zealand win the match?,19,23,NO,4.09,settled,market h2h de-vig; beat crowd
+2026-06-22,NZ vs EGY,Will the match have 2 or fewer total goals?,55,52,NO,-1.54,settled,market under 2.5; below crowd
+2026-06-22,ARG vs AUT,2H more goals than 1H,43,51,NO,9.16,settled,"beat crowd; Half-with-Most-Goals 3-way de-vig (8.1% hold, our noisiest); crowd's late-goals heuristic lost"
+2026-06-22,ARG vs AUT,Austria more corners than Argentina,20,30,YES,-13.35,settled,MISS below crowd; independent-Poisson on team corner ladders overstated favorite (corners +correlated within match); crowd 30 was sharper
+2026-06-22,ARG vs AUT,Argentina win,66,70,YES,-0.44,settled,"below crowd; h2h 3-way de-vig (3.8% hold); fav won, tiny loss to crowd's fav-bias"
+2026-06-22,ARG vs AUT,Match 2 or fewer total goals,50,44,YES,8.5,settled,beat crowd; O/U 2.5 under de-vig; crowd over/action-bias lost
+2026-06-22,ARG vs AUT,Argentina 6+ SoT,49,54,NO,8.34,settled,"beat crowd; ARG SoT ladder fit (mean 5.85, P>=6 ~50%); crowd fav-bias overrated dominance"
+2026-06-22,ARG vs AUT,Argentina score in 2H,66,68,YES,0.42,settled,beat crowd (thin); derived from 3 de-vigged ARG goal lines
+2026-06-22,ARG vs AUT,Sabitzer 1+ SoT,49,43,YES,9.37,settled,"beat crowd; player prop -105 de-vig (yes-only, est ~6% hold); crowd underrated"
+2026-06-22,ARG vs AUT,Austria caught offside 2+ times,,48,NO,,skipped,WE SKIPPED (no market). Base-rate would've said ~40% -> playing NO would have beaten crowd
+2026-06-22,ARG vs AUT,Austria more SoT than Argentina 2H,,27,NO,,skipped,WE SKIPPED (no market). GOOD skip: team-data calc earlier said ~50%; crowd nailed 27% on a NO -> we'd have lost big
+2026-06-22,ARG vs AUT,4+ total cards shown,,45,YES,,skipped,WE SKIPPED (no market). Crowd played safe at 45 and lost; referee card-avg would be the signal here
+2026-06-22,FRA vs IRQ,Iraq more 1H corners than France,10,10,,,open,"derived (market-anchored): Most-Corners-in-Each-Half FRA -290 ~70% both halves -> FRA wins 1H corner battle ~80%, 1H ties ~10% -> IRQ ~10%. Cross-check: indep-Poisson on FRA/IRQ corner ladders (FRA 1H lambda~3.6, IRQ ~1.1) ~8%. No direct 1H comparison market; Low conf. LEAN DROPPED: prior version applied +shrink to 12 on an unproven correlation heuristic (n=1, ARG-AUT); mechanism did not hold up, removed."
+2026-06-22,FRA vs IRQ,France more fouls than Iraq,40,,,,open,"BASE-RATE no market: prior underdog_more_fouls 0.56 (Iraq defends/fouls more) -> France-more ~0.40. Low conf, quarantined."
+2026-06-22,FRA vs IRQ,Iraq 1+ card in 2H,72,,,,open,"BASE-RATE no market: mean_2h_cards 2.6 total, Iraq ~55% share -> ~1.4 -> P(>=1)~0.72. Low conf, quarantined. No bookings market found on FanDuel."
+2026-06-22,FRA vs IRQ,BTTS AND 3+ goals,32,32,,,open,derived: Kalshi BTTS 34.5% minus P(1-1); FRA lambda~3.55 IRQ lambda~0.42 -> P(1-1)~2.8% -> 31.7%.
+2026-06-22,FRA vs IRQ,Iraq 2+ SoT in 2H,23,23,,,open,"derived: FanDuel IRQ SoT ladder lambda~1.85, 2H share ~53% -> 2H lambda~0.95 -> P(>=2)~24%; cross-checked vs each-half markets (1+ each half +200, 2+ each half +1800) both imply per-half P(>=2)~0.23."
+2026-06-22,FRA vs IRQ,France win,91,91,,,open,"direct 3-way: Kalshi FRA 91.5/Tie 6.5/IRQ 2.5 mid (sum 100.5, near vig-free) -> FRA 91.0%. NB: Action Network 2-way ML implied only ~77% (draw line missing); Kalshi real-money used as anchor."
+2026-06-22,FRA vs IRQ,Iraq score in 2H,20,20,,,open,"derived (odds-ratio de-vig of IRQ FH-goals 3-way): IRQ scores 1H 17.7%, match-to-score 34.5% -> 2H residual ~20% (prop gave 17.7). Bake-off logged."
+2026-06-22,FRA vs IRQ,Iraq 4+ SoT (full match),11,11,,,open,ladder fit: FanDuel IRQ team SoT 3+/4+/5+ (+270/+750/+2000) -> Poisson lambda~1.85 -> P(>=4)~11%.
+2026-06-22,FRA vs IRQ,France score in 1H,80,80,,,open,"direct 3-way de-vig (odds-ratio, chosen method): No-1H leg 20.5% -> scores 79.5% (prop 78.8). Bake-off logged all methods."
+2026-06-23,NOR vs SEN,Norway more 2H goals than Senegal,39,45,NO,8.47,settled,Kalshi 2H ML direct 3-way (1% hold); all methods agree
+2026-06-23,NOR vs SEN,Penalty OR red card shown,56,39,NO,,settled,base-rate: penalty_or_red 56% = 1-(1-0.42)(1-0.30)
+2026-06-23,NOR vs SEN,Senegal more fouls than Norway,56,55,NO,,settled,base-rate: underdog_more_fouls 56% (Senegal is underdog)
+2026-06-23,NOR vs SEN,4+ total SoT in 2nd half,64,64,YES,,settled,base-rate: Poisson(mean_2h_sot=4.4) P>=4 = 64%
+2026-06-23,NOR vs SEN,Norway win the match,42,49,YES,-5.91,settled,Kalshi full-game 3-way primary; FD OR 40.3% cross-check
+2026-06-23,NOR vs SEN,HT match tied,43,44,NO,2.43,settled,Kalshi 1H 3-way primary; FD OR 42.5% cross-check
+2026-06-23,NOR vs SEN,9+ total corner kicks,56,53,YES,5.27,settled,FanDuel O8.5 -148/U+112 OR de-vig (6.8% hold)
+2026-06-23,NOR vs SEN,Norway 6+ shots on target,38,42,YES,-1.6,settled,FanDuel one-sided +165 raw implied; no NO price
+2026-06-23,NOR vs SEN,Sadio Mane scores a goal,28,30,NO,3.4,settled,FanDuel anytime goalscorer +260 raw implied; one-sided
+2026-06-23,NOR vs SEN,Senegal caught offside 2+ times,40,50,YES,,settled,base-rate: underdog offside_2plus 40% (SB WC n50)
+2026-06-23,POR vs UZB,UZB caught offside 2+ times,40,,,,open,base-rate underdog 0.40; no offside market found
+2026-06-23,POR vs UZB,Portugal more 2H SoT than UZB,85,,,,open,Poisson lam_POR/2=3.8 vs lam_UZB/2=1.1; raw P(POR>UZB in 2H)=84.7%; tempering removed (single-point calibration not robust)
+2026-06-23,POR vs UZB,Portugal caught offside 2+ times,40,,,,open,base-rate favorite 0.40; no offside market found
+2026-06-23,POR vs UZB,Penalty OR red card,58,,,,open,Kalshi red 27.5% + base penalty 42%; 1-(0.725)(0.58)=58%; independence assumed
+2026-06-23,POR vs UZB,Shomurodov 1+ SoT in 2H,30,,,,open,FT-1H+each-half = 50.5-27.8+6.9=29.6%; one-sided FD props 10% hold assumed
+2026-06-23,POR vs UZB,BTTS AND 3+ total goals,33,33,,,open,direct 4-way OR (hold 12.3%): BTTS+O2.5 leg = 32.5%
+2026-06-23,POR vs UZB,Portugal win,88,88,,,open,3-way OR from WDW+O/U 1.5 6-way (hold 11.3%); proportional=82.5% OR=87.5%
+2026-06-23,POR vs UZB,2H 2+ total goals,55,,,,open,Poisson split: lam_tot=3.35 (O/U3.5 OR) lam_1H=1.5 (1H-O/U1.5 OR) lam_2H=1.85; P(>=2)=55%
+2026-06-23,POR vs UZB,UZB 4+ SoT,18,18,,,open,Poisson fit lam=2.2 from FD one-sided ladder [3+ 4+ 5+ 6+]; P(>=4)=18.1%
+2026-06-23,POR vs UZB,Goncalo Ramos scores,53,,,,open,user found -125 anytime goalscorer; fair ~53% (est 5% hold); 55.6% raw; starting striker in POR attack

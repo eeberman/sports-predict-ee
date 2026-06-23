@@ -1,0 +1,11 @@
+market_id,question,family,prob,low,high,evidence,main_risk,grounding
+9042bb3c-faa7-424d-b217-f75c8da0bb93,Will Austria be caught offside 2 or more times?,offsides,40.0,34.0,46.0,SB offside>=2 underdog 0.40,deep block / vertical attack,base_rate
+9b0cd14f-f996-4322-9c64-9f7500399848,Will Austria have more shots on target than Argentina in the second half?,shots,50.0,44.0,56.0,"2H SoT: Argentina 2.84 vs Austria 3.34 (8 g, statsbomb/api_football)",teammate variance,team_data
+04682a41-eef9-4316-bbc9-6078a5afcf6a,Will the second half have more goals than the first half?,goals_totals,50.0,44.0,56.0,UNHANDLED goals_totals/half_goals_comparison,needs manual classification,base_rate
+f52f7be4-737e-4fde-ae53-5012c89da082,Will Austria finish with more corner kicks than Argentina?,corners,39.0,33.0,45.0,"2H corners: Argentina 2.41 vs Austria 2.34 (8 g, statsbomb/api_football)",game-state variance,team_data
+2e319b9e-222b-42d3-899a-c02ebb50a02a,Will Argentina win the match?,match_result,66.0,60.0,72.0,3-way de-vig of h2h (home),market move/late news,market
+47c70f44-d6da-4dd4-9486-5bda8a49a50d,Will the match have 2 or fewer total goals?,goals_totals,51.0,45.0,57.0,Market under 2.5 = 0.51,margin swing,market
+9ae92a8b-0200-4282-8837-15f42e7b62cb,Will there be 4 or more total cards shown?,discipline,53.0,47.0,59.0,Poisson(mean=3.8) P(>= 4 cards) 2026 surge,calm game / lenient ref,base_rate
+991f4aed-bd68-495b-a486-5777c6696e09,Will Argentina have 6 or more shots on target?,shots,50.0,44.0,56.0,UNHANDLED shots/team_shots_over,needs manual classification,base_rate
+d5280dd9-1186-4445-a989-24af39d0b713,Will Argentina score in the second half?,goals_totals,50.0,44.0,56.0,UNHANDLED goals_totals/team_score_in_second_half,needs manual classification,base_rate
+fb6a23ec-aa0c-4177-b1f4-dc11c5722541,Will Marcel Sabitzer have at least 1 shot on target?,player_markets,42.0,36.0,48.0,placeholder midfielder 1+ SoT (DEFER / paste prop),lineup/role unknown,base_rate

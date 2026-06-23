@@ -99,6 +99,18 @@ python -m raw_landing.cli pull-statsbomb [--cycles 2]
 python -m raw_landing.cli pull-statbunker
 ```
 
+### Repair Missing Non-SportsPredict Files
+
+The repair command is read-only unless `--apply` is provided. It only targets missing
+configured Football-Data and StatsBomb objects; it never calls SportsPredict or StatBunker.
+
+```bash
+python -m raw_landing.cli --env-file ../.env repair-non-sportspredict
+python -m raw_landing.cli --env-file ../.env repair-non-sportspredict --apply
+python -m raw_landing.cli --env-file ../.env reconcile-manifest
+python audit_r2_raw_landing.py
+```
+
 ### Provider Probes
 
 ```bash
@@ -108,9 +120,18 @@ python -m provider_probe.cli probe-referee-sources
 
 ---
 
+## Non-market forecasting status
+
+Questions without a betting market (who-has-more corners/SoT/fouls, offsides, 2H-vs-1H) are
+**not production-ready** — see [forecasting/NONMARKET_STATUS.md](forecasting/NONMARKET_STATUS.md)
+for the coverage / data-quality / modeling gaps and the next-step roadmap (opponent-strength
+adjustment, broader data, feature-selected model).
+
+---
+
 ## Security
 
 - `.env` is gitignored and never committed
 - No predictions are auto-submitted to SportsPredict under any circumstances
-- R2 files are immutable — re-runs skip already-uploaded keys via local manifest check
+- R2 files are immutable — existing keys are never overwritten
 - API keys are only printed as "present" / "MISSING", never their values

@@ -1,0 +1,11 @@
+source_name,entity_name,expected_prefix,expected_status,r2_object_count,total_bytes,manifest_row_count,distinct_run_ids,latest_ingested_at_utc,status_counts,completeness_status,notes
+sportspredict,events,raw/sportspredict/events/,required,2,478,2,2,2026-06-21T13:05:38.504000+00:00,"{""uploaded"": 2}",complete,latest sample count=1.
+sportspredict,lobbies,raw/sportspredict/lobbies/,required,2,258,2,2,2026-06-21T13:05:41.969000+00:00,"{""uploaded"": 2}",complete,latest sample count=1.
+sportspredict,matches,raw/sportspredict/matches/,required,0,0,0,0,,{},missing,No objects found under expected prefix. not available.
+sportspredict,markets,raw/sportspredict/markets/,required,0,0,0,0,,{},missing,No objects found under expected prefix. not available.
+football_data_co_uk,csv,raw/football_data_co_uk/csv/,required,55,8357771,55,2,2026-06-21T14:47:17.346000+00:00,"{""uploaded"": 55}",complete,Configured coverage 55/55 files.
+statsbomb_open_data,competitions,raw/statsbomb_open_data/competitions/,required,1,34887,1,1,2026-06-21T13:09:21.047000+00:00,"{""uploaded"": 1}",complete,
+statsbomb_open_data,matches,raw/statsbomb_open_data/matches/,required,4,355871,4,1,2026-06-21T13:20:42.822000+00:00,"{""uploaded"": 4}",complete,Cheap JSON count across match files: 193 matches.
+statsbomb_open_data,events,raw/statsbomb_open_data/events/,required,193,592275504,193,2,2026-06-21T14:50:42.288000+00:00,"{""uploaded"": 193}",complete,Event IDs without lineups: 0.
+statsbomb_open_data,lineups,raw/statsbomb_open_data/lineups/,required,193,4349381,193,2,2026-06-21T14:52:32.531000+00:00,"{""uploaded"": 193}",complete,Lineup IDs without events: 0.
+statbunker,referee_cards,raw/statbunker/referee_cards/,required_configured; international_manual,4,219997,4,1,2026-06-21T14:22:56.944000+00:00,"{""uploaded"": 4}",present_but_needs_review,Manual todo present: yes. Configured club competitions are present; international comp_ids remain manual.

@@ -137,6 +137,17 @@ Score = `market_count × (6 - avg_difficulty)` — higher is better ROI.
 - **xg**: Source unknown — investigate
 - **xg_per_shot**: xG data (Understat, StatsBomb)
 
+## Known Gaps / Future Improvements
+
+### Game-state tempering for 2H dominance questions
+`compute.py::temper_2h_dominance` shrinks the Poisson-derived P(favorite wins 2H stat) toward 50%
+based on a single constant `GAME_STATE_SHRINK = 0.55`, calibrated against one data point (ESP-KSA Q2).
+The intent is valid — a leading team eases off in the 2H, compressing their statistical edge — but the
+constant is not statistically fitted. Until this is calibrated against a meaningful sample of settled
+2H comparison questions (SoT, corners, goals), the tempering should **not** be applied; use the raw
+Poisson estimate instead. Track the raw vs tempered divergence per question in results_log so the
+correct shrink factor can eventually be estimated from data.
+
 ## Next Build Steps
 
 1. **Odds baseline** — Collect bookmaker odds for all markets in `match_result_model`

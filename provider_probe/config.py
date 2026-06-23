@@ -10,7 +10,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# The populated .env lives at the project root; load a local copy first if present,
+# then the project-root .env (load_dotenv does not override already-set vars).
 load_dotenv(REPO_ROOT / ".env")
+load_dotenv(PROJECT_ROOT / ".env")
 
 # Provider keys (never printed directly)
 ODDS_API_KEY: str = os.environ.get("ODDS_API_KEY", "")

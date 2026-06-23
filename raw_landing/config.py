@@ -1,7 +1,4 @@
-"""
-Configuration and environment validation for raw_landing.
-Never prints secret values — only "present" or "MISSING".
-"""
+"""Configuration for raw landing. Secret values are never printed."""
 from __future__ import annotations
 
 import os
@@ -9,25 +6,30 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent.parent / ".env")
 
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
-OUTPUTS = Path("outputs")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_ENV_PATH = PROJECT_ROOT / ".env"
+load_dotenv(DEFAULT_ENV_PATH)
+
+OUTPUTS = PROJECT_ROOT / "outputs"
 LOGS = OUTPUTS / "logs"
 SAMPLES = OUTPUTS / "samples"
-MANIFEST_PATH = Path("raw_manifest.csv")
+MANIFEST_PATH = PROJECT_ROOT / "raw_manifest.csv"
 
-# ---------------------------------------------------------------------------
-# Required env vars
-# ---------------------------------------------------------------------------
+_ALIASES: dict[str, tuple[str, ...]] = {
+    "R2_ENDPOINT_URL": ("R2_ENDPOINT_URL", "s3_api"),
+    "AWS_ACCESS_KEY_ID": ("AWS_ACCESS_KEY_ID", "R2_ACCESS_KEY_ID"),
+    "AWS_SECRET_ACCESS_KEY": ("AWS_SECRET_ACCESS_KEY", "R2_SECRET_ACCESS_KEY"),
+    "AWS_REGION": ("AWS_REGION",),
+}
+
 R2_REQUIRED = [
     "R2_BUCKET",
     "R2_ACCOUNT_ID",
-    "CLOUDFLARE_API_TOKEN",
+    "R2_ENDPOINT_URL",
+    "AWS_ACCESS_KEY_ID",
+    "AWS_SECRET_ACCESS_KEY",
 ]
-
 SP_REQUIRED = ["SPORTSPREDICT_API_KEY"]
 
 
@@ -35,24 +37,38 @@ class ConfigError(RuntimeError):
     pass
 
 
-def get(key: str) -> str:
-    return os.environ.get(key, "")
+def load_env_file(path: str | Path) -> Path:
+    resolved = Path(path).expanduser().resolve()
+    if not resolved.is_file():
+        raise ConfigError(f"Environment file not found: {resolved}")
+    load_dotenv(resolved, override=True)
+    return resolved
+
+
+def get(key: str, default: str = "") -> str:
+    if key == "AWS_REGION":
+        default = default or "auto"
+    for candidate in _ALIASES.get(key, (key,)):
+        value = os.environ.get(candidate, "").strip()
+        if value:
+            return value
+    return default
 
 
 def _check_keys(keys: list[str]) -> list[str]:
-    missing = []
-    for k in keys:
-        present = bool(os.environ.get(k, "").strip())
-        status = "present" if present else "MISSING"
-        print(f"  {k}: {status}")
+    missing: list[str] = []
+    for key in keys:
+        present = bool(get(key))
+        print(f"  {key}: {'present' if present else 'MISSING'}")
         if not present:
-            missing.append(k)
+            missing.append(key)
     return missing
 
 
 def validate_r2() -> None:
     print("R2 credentials:")
     missing = _check_keys(R2_REQUIRED)
+    print(f"  AWS_REGION: {'present' if get('AWS_REGION') else 'MISSING'}")
     if missing:
         raise ConfigError(f"Missing required R2 env vars: {missing}")
 
@@ -66,8 +82,6 @@ def validate_sportspredict() -> None:
 
 def validate_all() -> None:
     validate_r2()
-    validate_sportspredict()
-    print("Optional (not used in this task):")
-    for k in ["API_FOOTBALL_KEY", "ODDS_API_KEY", "MOTHERDUCK_TOKEN"]:
-        v = os.environ.get(k, "")
-        print(f"  {k}: {'present' if v.strip() else 'not set (OK)'}")
+    print("Optional:")
+    for key in ["SPORTSPREDICT_API_KEY", "API_FOOTBALL_KEY", "ODDS_API_KEY", "MOTHERDUCK_TOKEN"]:
+        print(f"  {key}: {'present' if get(key) else 'not set (OK)'}")

@@ -1,0 +1,19 @@
+key,role,prior,source,notes
+offside_2plus,favorite,0.4,sb_dominance_n80,dominant team blowout bucket; team record overrides
+offside_2plus,underdog,0.4,sb_dominance_n80,"underdog mean 1.30, P>=2 0.40"
+offside_2plus,neutral,0.37,statsbomb_wc_n50,pooled team-matches
+dominant_more_2h_corners,favorite,0.54,statsbomb_wc_n50,tie-prone; lifted by fav strength + Poisson if props
+dominant_more_2h_sot,favorite,0.64,statsbomb_wc_n50,scaled up by fav strength
+total_sot_8plus,neutral,0.57,sb_wc_0.54 / fd_league_0.65,WC cagier than leagues; blend
+penalty_in_match,neutral,0.42,statsbomb_wc_n50,VAR-era WC penalty heavy
+red_card_in_match,neutral,0.3,sb_hist_0.06 -> 2026_adj,2026 reds at record pace
+penalty_or_red,neutral,0.56,composed,1-(1-0.40)(1-0.30)
+total_corners_10plus,neutral,0.51,fd_league_n7090,mean ~9.8; market cross-check ~10.7
+mean_total_corners,neutral,9.8,fd_league_n7090,total corners/match
+mean_total_sot,neutral,8.5,sb_wc/fd_blend,total shots on target/match
+mean_2h_sot,neutral,4.4,~half of total SoT,2H total SoT
+mean_2h_cards,neutral,2.6,2026_adj,2H total cards (booking surge)
+underdog_more_fouls,neutral,0.56,defending-side foul lean,weaker/defending team fouls more
+halftime_lead_factor,neutral,0.74,calib vs Kalshi 1H mkt (BEL-IRN 0.76),P(lead@HT)~factor*P(win); use direct 1H market when available
+player_sot_midfielder,neutral,0.42,placeholder,midfielder 1+ SoT; refine w/ lineup/odds
+player_goal_or_assist_keyfwd,neutral,0.27,placeholder,key forward G+A; refine w/ odds

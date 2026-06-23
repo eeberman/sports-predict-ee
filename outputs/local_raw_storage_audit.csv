@@ -1,0 +1,2 @@
+path,size_bytes,size_mib,duplicate_risk,notes
+,0,0.000,none,No local raw-like files or files >= 1 MiB found outside .git and .env.
