@@ -11,3 +11,18 @@ match_date,match,question,market,margin_pct,yes_proportional,yes_odds_ratio,yes_
 2026-06-23,ENG vs GHA,England win,Kalshi 3-way ENG/Tie/GHA,2.0,83.33,84.06,84.08,84.33,odds_ratio,,open,near-vig-free; methods agree
 2026-06-23,ENG vs GHA,BTTS AND 3+ total goals,FD 4-way Yes&Over/Yes&Under/No&Over/No&Under 2.5,13.88,32.52,32.71,33.14,33.57,odds_ratio,,open,YES=Yes&Over leg; 13.9% hold; highest divergence this slate
 2026-06-23,ENG vs GHA,Ghana 5+ corner kicks,Kalshi Ghana 5+ corners YES/NO,4.0,15.38,13.88,14.0,14.0,odds_ratio,,open,
+2026-06-23,PAN vs CRO,9+ total corners,FD corners Over8(-155)/Under9(+100),10.8,54.9,55.5,55.4,55.4,odds_ratio,YES,settled,Kalshi cross-check 52.5%
+2026-06-24,BIH vs QAT,BIH win the match,Kalshi 1X2 3-way,2.0,69.6,70.1,70.2,70.3,odds_ratio,,open,BIH leg
+2026-06-24,BIH vs QAT,BIH score more goals than QAT in 2H,Kalshi 2H ML 3-way,1.0,59.4,59.6,59.6,59.7,odds_ratio,,open,BIH leg
+2026-06-24,BIH vs QAT,Match 2 or fewer total goals,FD O/U 2.5 2-way,5.1,41.7,41.3,41.3,41.3,odds_ratio,,open,Under=YES
+2026-06-24,BIH vs QAT,QAT more SoT than BIH in 2H,FD Team Most SoT 3-way (full-match proxy),7.3,11.6,10.1,10.4,10.1,odds_ratio,,open,QAT leg; our_prob=14 from 2H Poisson; crowd_proxy=10 from this market
+2026-06-24,SUI vs CAN,Switzerland win,1X2 3-way (9-book consensus),4.91,38.13,38.26,38.3,38.37,odds_ratio,,open,SUI leg
+2026-06-24,SUI vs CAN,2H 2+ total goals,2H totals O/U 1.5 (BetMGM),8.14,41.1,40.31,40.38,40.38,odds_ratio,,open,Over=2+ goals leg
+2026-06-24,SCO vs BRA,Brazil finish with more corners than Scotland,Pinnacle corners 3-way BRA=1.289 Draw=9.19 SCO=4.73,9.6,70.8,73.5,73.4,74.4,odds_ratio,,open,
+2026-06-24,SCO vs BRA,Scotland score at least 1 goal,Pinnacle+BetOnline team_totals Scotland O@0.5,4.4,45.6,45.4,45.4,45.4,odds_ratio,,open,
+2026-06-24,SCO vs BRA,Match has 3 or more total goals,Pooled O@2.5 (pmu_fr+unibet+pinnacle+onexbet),5.4,53.5,53.7,53.6,53.6,odds_ratio,,open,
+2026-06-24,SCO vs BRA,4 or more total cards shown,Pinnacle O@3.5=2.40 / U@3.5=1.564,5.6,39.5,38.8,38.9,38.9,odds_ratio,,open,
+2026-06-24,SCO vs BRA,Scott McTominay have at least 1 SoT,Pool onexbet O@0.5=2.00 + WH O@0.5=1.91 (7% assumed hold),7.0,47.8,47.7,47.7,47.7,odds_ratio,,open,
+2026-06-24,SCO vs BRA,Brazil score in the first half,"FD Brazil 1H goals: 0=+145, 1=+135, 2+=+240 (YES=1+2+)",12.8,63.8,63.7,63.5,63.4,odds_ratio,,open,
+2026-06-24,MAR vs Haiti,Will Morocco win the match?,h2h 3-way pooled 31 books,4.09,81.04,82.49,82.49,82.99,odds_ratio,,open,Morocco win; YES = Morocco
+2026-06-24,MAR vs Haiti,Will Haiti receive more cards than Morocco?,Bookings ML 3-way (1 book),7.31,55.01,56.02,56.18,56.6,odds_ratio,,open,Haiti more cards; YES = Haiti

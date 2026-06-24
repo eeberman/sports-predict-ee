@@ -7,11 +7,12 @@ description: >
   questions", names an upcoming match for prediction, or pastes a slate of
   yes/no + comparison questions. Also use when the user pastes a game's SETTLED
   outcomes for upkeep — that triggers settlement mode. Drives a 4-step
-  interactive flow: (1) auto-fetch the questions and call which ones a market
-  probably exists for, (2) wait for the user to paste markets (opt-in odds
-  auto-pull), (3) de-vig to fair probabilities, score, log, and write a
-  worksheet, (4) discuss / grill. Market de-vigging is the core method — do NOT
-  fall back to a generic non-market model unless explicitly asked.
+  interactive flow: (1) auto-fetch the questions AND auto-pull every available
+  odds-API market at once, flagging which questions still need a manual hunt,
+  (2) user pastes the remaining niche/gap markets, (3) de-vig to fair
+  probabilities, score, log, and write a worksheet, (4) discuss / grill. Market
+  de-vigging is the core method — do NOT fall back to a generic non-market model
+  unless explicitly asked.
 ---
 
 # predict-game
@@ -35,26 +36,48 @@ must be surfaced loudly** — a silently dropped row corrupts the calibration se
 
 ---
 
-## Step 1 — Auto-fetch questions + market-existence call
+## Step 1 — Auto-fetch questions + auto-pull API markets
 
-Fetch the question set automatically. **Step 1 calls SportsPredict only — never
-the odds API.** Use the question-fetch half of the existing pipeline
-(`get_next_game.py` / `worksheet.py`): `_tool` → `list_events` → `list_lobbies`
-→ `list_matches` → `list_markets` for the next upcoming match (or the match the
-user named).
+Fetch the question set from SportsPredict **and** auto-pull every odds-API market
+that exists for this match in the same step. The goal is to hand the user a table
+that already shows which questions are *covered by the API* and which still need
+a manual hunt — so their search is limited to the genuinely niche markets.
 
-- If the user named a specific game, fetch that one; otherwise take the next
-  upcoming.
+**1a. Fetch questions (SportsPredict).** Use the question-fetch half of the
+pipeline (`get_next_game.py` / `worksheet.py`): `_tool` → `list_events` →
+`list_lobbies` → `list_matches` → `list_markets` for the named match (or next
+upcoming). Run each through `normalize_market` for `question_family` / `subtype`.
+
 - **Fallback:** if the SportsPredict fetch errors or returns nothing, ask the
   user to paste the questions. Don't invent the official questions.
 
-Run each question through `normalize_market` to get its `question_family` /
-`subtype`, then emit one table. The only added feature here is the
-market-existence call, so the user knows where to spend odds-hunting effort:
+**1b. Auto-pull the odds API (`the_odds_api`).** This is now an upfront default,
+not an opt-in (the bulk pull covered 6/10 questions on SUI-CAN and the user wants
+it front-loaded). Pull the **standard productive market set** for the match in as
+few calls as possible:
+
+- Find the active soccer sport key (`find_active_sport_key`; usually
+  `soccer_fifa_world_cup`) and the event id (match h2h, normalized team names).
+- One featured-markets call: `markets=h2h,totals,spreads`.
+- Then the **event-odds endpoint** (`/sports/{sk}/events/{id}/odds/`) for the
+  richer set, which only resolves per-event: `btts`, `totals_h2`, `h2h_h2`,
+  `team_totals`, `alternate_totals`, `alternate_team_totals`,
+  `player_shots_on_target`. Combine into as few requests as the API allows;
+  swallow per-market 422s (not every market exists every match).
+- Pool across books per [[pool-across-books-rule]] — see `references/devig.md`.
+- If `ODDS_API_KEY` is missing or the pull errors, say so and fall straight
+  through to manual-only; don't block the step.
+
+Then emit one combined table: each question, its market-existence call, **and
+whether the API pull already covered it**:
 
 ```
-| # | Question | Market likely? | Market type to look for |
+| # | Question | Market likely? | Market type to look for | API pulled? |
 ```
+
+- **API pulled?** — `✓ <market@line>` if the upfront pull found a usable market,
+  else `—` (still needs manual hunt). This column is the whole point: it collapses
+  the user's search to the `—` rows.
 
 - **Market likely?** — `Yes` / `Maybe (derive)` / `Unlikely`. Default this
   **deterministically from the family** using `references/market-existence.md`.
@@ -92,24 +115,27 @@ If a player is confirmed not starting but likely to come on as a sub:
    is broken, do not read either side as a precise probability — use the
    time-scaled starting market instead.
 
-Then stop. Ask the user to paste whatever markets they can find.
+Then stop. Tell the user exactly which `—` (un-pulled) rows still need a manual
+hunt, and ask them to paste those niche markets.
 
 ---
 
-## Step 2 — Markets (manual-first, opt-in auto-pull)
+## Step 2 — Fill the gaps (manual hunt for niche markets)
 
-The user pastes odds they found (any format: American, decimal, cents/%,
+The API pull in Step 1 already covered the standard markets. Step 2 is only about
+the `—` rows the API couldn't reach (niche markets: 2H cards, penalty/booking
+specials, per-half team-stat comparisons, role-player props, etc.). The user
+pastes whatever they found for those (any format: American, decimal, cents/%,
 ladders). Then:
 
-1. Parse each market, map it to a question number.
-2. Echo a confirmation table: question #, market found, raw implied probs, and
-   **hold** (overround). Flag every question with no market yet.
+1. Parse each pasted market, map it to a question number.
+2. Echo a confirmation table merging the Step-1 API markets and the new pastes:
+   question #, market found, raw implied probs, **hold** (overround). Flag every
+   question still with no market.
 3. Tag each as **direct** (one market answers it) or **derived** (must combine
    markets). Derived is where blow-ups happen — surface it now.
-4. For the still-missing **"market likely"** questions only, *offer*: "want me
-   to pull odds-API anchors for the gaps?" Call `the_odds_api` **only if the
-   user says yes**, and only for those gap questions — never spray the API
-   across covered or untradeable rows. (User is watchful about call burn.)
+4. If the user found a market the API also priced, **pool them**
+   (per [[pool-across-books-rule]]) — don't discard either.
 
 Then stop and let the user confirm or add more.
 

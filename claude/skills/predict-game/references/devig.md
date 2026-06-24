@@ -56,6 +56,22 @@ For a ladder of `N+` thresholds with prices, de-vig each rung where possible,
 then fit a Poisson mean with `fit_poisson_mean_from_ladder(thresholds, probs)`.
 Answer `P(X ≥ k)` with `_pois_sf(k, mu)`.
 
+## Always pool across books when >1 book quotes the same market
+
+**Default rule:** if two or more books quote the same market/ladder/prop, pool
+them — never pick a single book. Pooling cuts book-specific noise and is the
+better point estimate even when books disagree.
+
+- **Ladders / props:** average the raw implied prob at each rung across books,
+  then fit one Poisson to the pooled rungs. Equivalently, average the per-book
+  fitted P (or λ) — all three routes agree to <0.2pt in practice.
+- **Two-/three-way markets:** average each leg's raw implied prob across books
+  first, then de-vig the consensus (this is already what the 1X2 consensus does).
+- Record the single-book values in the note as the bracket (e.g. "pooled 0.42;
+  FD 0.45 / BR 0.39"), so the spread is visible for post-mortems.
+- One book is fine when only one quotes it — just flag it as single-book (lower
+  confidence) so the next pull knows to hunt a second source.
+
 ## Comparison "who does more" questions — derive, don't lean
 
 For "Home more corners/SoT than Away" there is usually **no market** for the

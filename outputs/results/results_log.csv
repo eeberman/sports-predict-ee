@@ -80,3 +80,53 @@ match_date,match,question,our_prob,crowd_prob,outcome,rbp,status,note
 2026-06-23,ENG vs GHA,Harry Kane score or assist,67,67,,,open,Direct 1-sided FD prop (-250 YES); 8% hold assumed; shave 4% off raw 71.4%
 2026-06-23,ENG vs GHA,Semenyo 1+ SoT,39,39,,,open,Direct 1-sided FD prop (+130 YES); 8% hold assumed; shave 4% off raw 43.5%
 2026-06-23,ENG vs GHA,Ghana 5+ corner kicks,14,14,,,open,Direct 2-way Kalshi (4% hold); odds-ratio YES=13.88%
+2026-06-23,PAN vs CRO,Panama more fouls than Croatia,56,,YES,,skipped,"SKIPPED (base-rate only). Crowd 57%, outcome YES — base-rate would have been right."
+2026-06-23,PAN vs CRO,Panama caught offside 2+ times,40,,NO,,skipped,SKIPPED (base-rate only). Base-rate 40% would have called NO correctly.
+2026-06-23,PAN vs CRO,Panama more SoT than Croatia in 2H,22,18,NO,4.53,settled,beat crowd (22 vs 27); derived each-half parlay held up
+2026-06-23,PAN vs CRO,Croatia score first goal of 2H,57,57,YES,5.37,settled,beat crowd (57 vs 54); multi-input derivation worked
+2026-06-23,PAN vs CRO,Croatia more cards than Panama,33,,NO,,skipped,"SKIPPED (no market). Crowd 36%, outcome NO — correct skip."
+2026-06-23,PAN vs CRO,Panama score at least 1 goal,57,57,NO,-5.44,settled,below crowd (57 vs 50); Kalshi direct — Panama blanked
+2026-06-23,PAN vs CRO,9+ total corners,53,54,YES,5.14,settled,beat crowd (53 vs 51); Kalshi direct
+2026-06-23,PAN vs CRO,Panama 3+ SoT,63,63,NO,-12.61,settled,below crowd (63 vs 49); ladder fit overrated Panama badly; Croatia dominated
+2026-06-23,PAN vs CRO,Jose Fajardo 1+ SoT,57,57,NO,-14.04,settled,below crowd (57 vs 40); Fajardo confirmed starting — correct to use fitted prop. Miss correlated with Panama 3+ SoT: Croatia blowout suppressed all Panama SoT.
+2026-06-23,PAN vs CRO,Luka Sucic 1+ SoT,10,59,NO,17.4,settled,"beat crowd (10 vs 37; submitted 10 after lineup scaling, fitted 59 was crowd_prob); lineup adjustment was decisive"
+2026-06-24,BIH vs QAT,BIH more 2H corners than QAT,65,65,,,open,"derived: ind.Poisson 2H (lam_BIH=3.18,lam_QAT=1.73); cross-check Most-corners-each-half +120 sqrt->64%"
+2026-06-24,BIH vs QAT,BIH score more goals than QAT in 2H,60,60,,,open,direct: Kalshi 2H ML (hold 1%); BetRivers cross-check 55%
+2026-06-24,BIH vs QAT,QAT more SoT than BIH in 2H,14,10,,,open,"derived: ind.Poisson 2H (lam_BIH=3.18,lam_QAT=1.48); crowd=FD Team Most SoT full-match proxy (OR 10%)"
+2026-06-24,BIH vs QAT,Penalty awarded OR red card,56,56,,,open,base-rate: composed 1-(1-0.42)*(1-0.30)=0.56; no market pulled
+2026-06-24,BIH vs QAT,QAT commit more fouls than BIH,56,56,,,open,base-rate: underdog_more_fouls=0.56; no market
+2026-06-24,BIH vs QAT,BIH receive more cards than QAT,40,40,,,open,base-rate: no prior; lean QAT(underdog/defending) more cards -> BIH ~40%
+2026-06-24,BIH vs QAT,BIH win the match,70,70,,,open,direct: Kalshi 1X2 (hold 2%); FD h2h cross-check 70.2%
+2026-06-24,BIH vs QAT,Match 2 or fewer total goals,41,41,,,open,direct: FD O/U 2.5 (hold 5.1%); BetRivers cross-check 38.5%
+2026-06-24,BIH vs QAT,Dzeko 1+ shot on target,78,78,,,open,"direct one-sided: FD -450, shave 8% hold -> 77.8%"
+2026-06-24,BIH vs QAT,QAT caught offside 2+ times,40,40,,,open,base-rate: underdog offside_2plus=0.40; no market
+2026-06-24,SUI vs CAN,Canada more fouls than Switzerland,56,,,,open,BASE-RATE (no market): underdog_more_fouls 0.56; Canada is underdog. Low conf
+2026-06-24,SUI vs CAN,Switzerland caught offside 2+ times,40,,,,open,BASE-RATE (no market): offside_2plus favorite 0.40. Low conf
+2026-06-24,SUI vs CAN,2+ total cards in 2nd half,73,,,,open,"BASE-RATE (no market): Poisson mean_2h_cards 2.6, P(>=2)=0.733. Low conf"
+2026-06-24,SUI vs CAN,BTTS AND 3+ goals,42,42,,,open,DERIVED: BTTS de-vig 0.526 x (1-0.21 P(1-1)) = 0.416; cross-check O/U2.5 over=0.426. Low conf
+2026-06-24,SUI vs CAN,Penalty awarded in match,42,,,,open,BASE-RATE (no market): penalty_in_match 0.42. Low conf
+2026-06-24,SUI vs CAN,Switzerland more SoT than Canada 2H,45,45,,,open,"DERIVED: FD SoT ladders lambda SUI 4.8/CAN 4.3, halved -> indep Poisson P(SUI>CAN 2H)=0.449; full-match anchor most-SoT 3-way SUI 0.501 matches ladder 0.499. Low conf"
+2026-06-24,SUI vs CAN,Switzerland win,38,38,,,open,"DIRECT 1X2 odds_ratio de-vig, 9-book consensus (hold 4.9%): SUI 0.383/Draw 0.323/CAN 0.295. High conf"
+2026-06-24,SUI vs CAN,2H 2+ total goals,40,40,,,open,"DIRECT 2H O/U1.5 odds_ratio de-vig (BetMGM, hold 8.1%): P(2H>=2)=0.403. Medium (one book). conf"
+2026-06-24,SUI vs CAN,Granit Xhaka 1+ SoT,42,42,,,open,"LADDER FIT 2-book consensus (FD 0.5@2.25/1.5@9.0 + BetRivers 0.5@2.60/1.5@9.0): pooled lambda 0.55 -> P(>=1)=0.423 (FD-only 0.451, BR-only 0.394). Medium"
+2026-06-24,SUI vs CAN,Jonathan David 1+ SoT,67,67,,,open,"LADDER FIT 2-book consensus (FD 1.45/3.30/10.0 + BetRivers 1.55/3.30/8.0): pooled lambda 1.10 -> P(>=1)=0.667 (FD-only 0.683, BR-only 0.667). Medium"
+2026-06-24,SCO vs BRA,Brazil more SoT than Scotland in 2H,71,,,,open,"UPDATED: player-prop Poisson sum (10 BRA + 10 SCO props, OR de-vig, 7% hold, 2H halve) -> 71-74%; corrected for within-team correlation (-2-3pp). Supersedes base-rate 69%."
+2026-06-24,SCO vs BRA,Scotland caught offside 2+ times,40,,,,open,base-rate underdog (offside_2plus=0.40)
+2026-06-24,SCO vs BRA,Scotland scores first goal AND Brazil scores in 2H,15,,,,open,derived: P(SCO first)=22% x P(BRA 2H)=70%; Poisson lambda SCO=0.62 BRA=2.20
+2026-06-24,SCO vs BRA,Brazil finish with more corners than Scotland,74,74,,,open,Pinnacle 3-way OR de-vig: BRA=73.5%
+2026-06-24,SCO vs BRA,Scotland score at least 1 goal,45,45,,,open,Pinnacle+BetOnline team_totals O@0.5 OR de-vig: 45.4%
+2026-06-24,SCO vs BRA,Match has 3 or more total goals,54,54,,,open,Pooled O@2.5 (pmu_fr+unibet+pinnacle+onexbet) OR de-vig: 53.7%
+2026-06-24,SCO vs BRA,Brazil score in the second half,70,,,,open,"derived: lambda_BRA=2.20, lambda_BRA_1H=1.01 from FD ladder, lambda_BRA_2H=1.19"
+2026-06-24,SCO vs BRA,4 or more total cards shown,39,39,,,open,Pinnacle O@3.5=2.40/U@3.5=1.564 OR de-vig: 38.8%
+2026-06-24,SCO vs BRA,Scott McTominay have at least 1 SoT,48,48,,,open,Pool onexbet O@0.5=2.00 + WH O@0.5=1.91; 7% assumed hold OR de-vig: 47.7%
+2026-06-24,SCO vs BRA,Brazil score in the first half,67,67,,,open,FD Brazil 1H goals 3-way (+145/+135/+240) OR de-vig 63.7%; Kalshi HT cross-check 69.9%; blend 66.8%
+2026-06-24,MAR vs Haiti,Will Haiti commit more fouls than Morocco?,56,56,,,open,underdog_more_fouls prior 0.56; NO fouls-comparison market found
+2026-06-24,MAR vs Haiti,"At halftime, will Haiti have more corner kicks than Morocco?",17,17,,,open,mu_MAR=3.3 mu_HAI=1.7 -> P(HAI>MAR corners 1H)=0.168; Morocco dominant
+2026-06-24,MAR vs Haiti,Will Haiti receive more cards than Morocco?,56,56,,,open,Bookings ML 1 book: MAR 5.48/Draw 3.33/HAI 1.694; hold 7.3%; OR de-vig -> Haiti 56.0%
+2026-06-24,MAR vs Haiti,Will Morocco have more shots on target than Haiti in the second half?,73,73,,,open,"lam_MAR_sot_2H=3.35, lam_HAI_sot_2H=1.47; P(MAR>HAI in 2H SoT)=0.734; above base rate 0.64"
+2026-06-24,MAR vs Haiti,Will there be 4 or more total shots on target in the second half?,70,70,,,open,FD match SoT: lam_match=9.5; lam_2H=4.75; P(Poisson(4.75)>=4)=0.698
+2026-06-24,MAR vs Haiti,Will a penalty kick be awarded OR a red card be shown?,56,56,,,open,"Composed: 1-(1-0.42)(1-0.30)=0.56; VAR-era WC, 2026 elevated red rate"
+2026-06-24,MAR vs Haiti,Will Morocco win the match?,82,82,,,open,Pooled 31 books avg raw: MAR 0.8435/Draw 0.1369/HAI 0.0605; hold 4.1%; OR de-vig MAR 82.5%
+2026-06-24,MAR vs Haiti,Will Morocco score in the first half?,69,69,,,open,FD/GTBets totals_h1 O/U 1.5 de-vig -> lam_total_1H=1.43; MAR share 82%; lam_MAR_1H=1.17; P=0.691
+2026-06-24,MAR vs Haiti,Will Duckens Nazon have at least 1 shot on target?,8,,,,open,Nazon confirmed not starting; absent from all books; P=P(sub on)0.65 x base_fwd_sot0.45 x (25/90)=0.08
+2026-06-24,MAR vs Haiti,Will Haiti score in the second half?,27,27,,,open,betmgm totals_h2 O/U 1.5: OR de-vig lam_2H=1.745; HAI share 17.9%; lam_HAI_2H=0.313; P=0.268; cross-check full-match O/U gives 0.237
