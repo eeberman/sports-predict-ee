@@ -1,0 +1,71 @@
+name: SportsPredict Email Automation
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run_email:
+        description: "Render artifacts without sending Resend email"
+        required: false
+        default: "false"
+      match_id:
+        description: "Optional SportsPredict match id"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    env:
+      SPORTSPREDICT_API_KEY: ${{ secrets.SPORTSPREDICT_API_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+      EMAIL_TO: ${{ secrets.EMAIL_TO }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run automation
+        run: |
+          args=()
+          if [ "${{ github.event.inputs.dry_run_email }}" = "true" ]; then
+            args+=(--dry-run-email)
+          fi
+          if [ -n "${{ github.event.inputs.match_id }}" ]; then
+            args+=(--match-id "${{ github.event.inputs.match_id }}")
+          fi
+          python -m automation.runner "${args[@]}"
+
+      - name: Upload automation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sportspredict-automation-${{ github.run_id }}
+          path: |
+            automation_state/
+            outputs/automation/
+          if-no-files-found: ignore
+
+      - name: Commit automation state and email outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation_state outputs/automation
+          if git diff --cached --quiet; then
+            echo "No automation changes to commit"
+          else
+            git commit -m "Update SportsPredict automation state"
+            git push
+          fi
+

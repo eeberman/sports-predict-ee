@@ -1,0 +1,2 @@
+"""Unattended SportsPredict email automation."""
+
